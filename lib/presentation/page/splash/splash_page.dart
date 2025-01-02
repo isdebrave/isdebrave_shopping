@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/theme/constant/app_icon.dart';
 import '../../route/route_path.dart';
 
 class SplashPage extends StatefulWidget {
@@ -14,7 +15,8 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2), () => context.go(RoutePath.home));
+    Future.delayed(Duration(seconds: 2), () => context.go(RoutePath.main));
+
     super.initState();
   }
 
@@ -22,9 +24,9 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SvgPicture.asset('asset/svg/main_logo.svg'),
+        child: SvgPicture.asset(AppIcon.mainLogo),
       ),
-      backgroundColor: Color(0xFF5F0080),
+      backgroundColor: Theme.of(context).colorScheme.primary,
     );
   }
 }
